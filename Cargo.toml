@@ -1,0 +1,40 @@
+[package]
+name = "rs-variance"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[lints.rust]
+unsafe_code = "deny"
+
+[lints.clippy]
+unwrap_used = "forbid"
+
+[profile.release-wasm]
+inherits = "release"
+lto = true
+strip = true
+opt-level = 's'
+codegen-units = 16
+
+[dependencies]
+
+[features]
+defaults = [
+    "simple",
+    "two-pass",
+    "ext_wasm",
+    "shift",
+]
+
+simple = []
+
+two-pass = []
+
+mean = []
+
+ext_wasm = []
+
+shift = []
