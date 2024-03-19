@@ -38,3 +38,5 @@ mean = []
 ext_wasm = []
 
 shift = []
+
+wasm_simd = [ "ext_wasm" ]

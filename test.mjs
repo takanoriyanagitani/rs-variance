@@ -26,6 +26,7 @@ import { readFile } from "node:fs/promises"
             var64f_2pass_unbiased,
 
             var32f_shift_unbiased,
+            var32f_shift_unbiased_simd128,
         } = instance?.exports || {}
 
         const sz = 65536
@@ -63,6 +64,7 @@ import { readFile } from "node:fs/promises"
             pass2: var32f_2pass_unbiased(),
             pass2partial64f: var32f_2pass_unbiased_partial64f(),
             shift: var32f_shift_unbiased(view32f[0]),
+            shift128simd: var32f_shift_unbiased_simd128(view32f[0]),
             pass2f64: var64f_2pass_unbiased(),
         }
 
@@ -75,6 +77,7 @@ import { readFile } from "node:fs/promises"
             {f: var64f_2pass_unbiased, name: "2pass64f"},
             {f: var32f_2pass_unbiased_partial64f, name: "2pass, partial 64"},
             {f: _ => var32f_shift_unbiased(view32f[0]), name: "shift"},
+            {f: _ => var32f_shift_unbiased_simd128(view32f[0]), name: "shift128simd"},
         ]
 
         const bench = {}
