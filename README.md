@@ -1,0 +1,2 @@
+# rs-variance
+Computes variance
